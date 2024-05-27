@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+  <!-- Type definitions -->
+  <property name="date_type" value="date" dbms="h2, mssql, mysql, oracle, postgresql"/>
+  <property name="float_type" value="float4" dbms="h2, postgresql"/>
+  <property name="float_type" value="float" dbms="mssql, mysql, oracle"/>
+  <property name="time_type" value="time" dbms="h2, mssql, mysql, oracle, postgresql"/>
+  <property name="timestamp_type" value="timestamp with time zone" dbms="h2, oracle"/>
+  <property name="timestamp_type" value="datetimeoffset" dbms="mssql"/>
+  <property name="timestamp_type" value="timestamp" dbms="mysql"/>
+  <property name="timestamp_type" value="timestamptz" dbms="postgresql"/>
+  <property name="uuid_type" value="uuid" dbms="h2, postgresql"/>
+  <property name="uuid_type" value="uniqueidentifier" dbms="mssql"/>
+  <property name="uuid_type" value="RAW(40)" dbms="oracle"/>
+  <property name="uuid_type" value="uuid" dbms="mysql"/>
+  <property name="uuid" value="uuid()" dbms="mysql"/>
+  <property name="boolean" value="binary(40)" dbms="mysql"/>
+
+
+
+  <!-- Function definitions -->
+  <property name="now_function" value="now()" dbms="mysql, postgresql"/>
+  <property name="now_function" value="SYSDATETIMEOFFSET()" dbms="mssql"/>
+  <property name="now_function" value="CURRENT_TIMESTAMP" dbms="h2, oracle"/>
+  <property name="uuid_function" value="random_uuid()" dbms="h2"/>
+  <property name="uuid_function" value="NEWID()" dbms="mssql"/>
+  <property name="uuid_function" value="sys_guid()" dbms="oracle"/>
+  <property name="uuid_function" value="uuid_generate_v4()" dbms="postgresql"/>
+
+  <include file="classpath:db/changelog/db.changelog-0.1.0.xml" relativeToChangelogFile="false"/>
+  <include file="classpath:db/changelog/db.changelog-0.1.1.xml" relativeToChangelogFile="false"/>
+  <include file="classpath:db/changelog/db.changelog-0.1.2.xml" relativeToChangelogFile="false"/>
+  <include file="classpath:db/changelog/db.changelog-0.1.3.xml" relativeToChangelogFile="false"/>
+  <include file="classpath:db/changelog/db.changelog-0.1.8.xml" relativeToChangelogFile="false"/>
+  <include file="classpath:db/changelog/db.changelog-0.1.9.xml" relativeToChangelogFile="false"/>
+  <include file="classpath:db/changelog/db.changelog-0.1.10.xml" relativeToChangelogFile="false"/>
+  <include file="classpath:db/changelog/db.changelog-0.2.0.xml" relativeToChangelogFile="false"/>
+<!--  <include file="classpath:db/changelog/db.changelog-0.2.1.xml" relativeToChangelogFile="false"/>-->
+<!--  <include file="classpath:db/changelog/db.changelog-0.2.2.xml" relativeToChangelogFile="false"/> -->
+  <include file="classpath:db/changelog/db.changelog-0.2.3.xml" relativeToChangelogFile="false"/>
+  <!--<include file="classpath:db/changelog/db.changelog-0.2.4.xml" relativeToChangelogFile="false"/>-->
+  <include file="classpath:db/changelog/db.changelog-0.2.5.xml" relativeToChangelogFile="false"/>
+  <include file="classpath:db/changelog/db.changelog-0.2.6.xml" relativeToChangelogFile="false"/>
+  <include file="classpath:db/changelog/db.changelog-0.2.7.xml" relativeToChangelogFile="false"/>
+  <include file="classpath:db/changelog/db.changelog-0.2.8.xml" relativeToChangelogFile="false"/>
+  <include file="classpath:db/changelog/db.changelog-0.2.9.xml" relativeToChangelogFile="false"/>
+  <include file="classpath:db/changelog/db.changelog-0.3.0.xml" relativeToChangelogFile="false"/>
+  <include file="classpath:db/changelog/db.changelog-0.3.1.xml" relativeToChangelogFile="false"/>
+  <include file="classpath:db/changelog/db.changelog-0.3.2.xml" relativeToChangelogFile="false"/>
+  <include file="classpath:db/changelog/db.changelog-0.3.3.xml" relativeToChangelogFile="false"/>
+  <!--<include file="classpath:db/changelog/db.changelog-0.3.4.xml" relativeToChangelogFile="false"/>-->
+  <include file="classpath:db/changelog/db.changelog-0.3.5.xml" relativeToChangelogFile="false"/>
+  <include file="classpath:db/changelog/db.changelog-0.3.6.xml" relativeToChangelogFile="false"/>
+</databaseChangeLog>

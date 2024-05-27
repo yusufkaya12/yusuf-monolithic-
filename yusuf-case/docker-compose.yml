@@ -1,0 +1,85 @@
+version: '3'
+services:
+
+  # TODO add mysql service with user and password
+
+  mysqldb:
+    image: mysql:5.7
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=sa
+      - MYSQL_DATABASE=3pounds
+    ports:
+      - 3306:3306
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci --init-connect='SET NAMES UTF8;' --innodb-flush-log-at-trx-commit=0
+
+
+
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    ports:
+      - 6379:6379
+
+  redis-commander:
+    container_name: redis-commander
+    hostname: redis-commander
+    image: rediscommander/redis-commander:latest
+    environment:
+      - REDIS_HOSTS=local:redis:6379
+    ports:
+      - 5002:8081
+    depends_on:
+      - redis
+
+  rabbitmq:
+    image: rabbitmq:management
+    container_name: rabbitmq
+    environment:
+        - RABBITMQ_DEFAULT_USER=guest
+        - RABBITMQ_DEFAULT_PASS=guest
+    ports:
+        - "5672:5672"
+        - "15672:15672"
+
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.11.1
+    container_name: elasticsearch
+    environment:
+        - xpack.security.enabled=false
+        - discovery.type=single-node
+    ulimits:
+          memlock:
+            soft: -1
+            hard: -1
+          nofile:
+            soft: 65536
+            hard: 65536
+    cap_add:
+        - IPC_LOCK
+    ports:
+      - "9200:9200"
+
+  kibana:
+      image: docker.elastic.co/kibana/kibana:8.11.1
+      container_name: kibana
+      ports:
+        - "5601:5601"
+      environment:
+        - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+
+  logstash:
+      image: docker.elastic.co/logstash/logstash:8.11.1
+      container_name: logstash
+      volumes:
+        - ./logstash/config:/usr/share/logstash/config
+      environment:
+        - "LS_JAVA_OPTS=-Xmx256m -Xms256m"
+      ports:
+        - "5500:5500"
+
+
+
+

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+
+        <changeSet author="ysfky" id="1" >
+            <createTable tableName="messages">
+                <column name="id" type="${uuid_type}"/>
+                <column name="receiver_id" type="${uuid_type}"/>
+                <column name="sender_id" type="${uuid_type}"/>
+                <column name="text" type="varchar(255)"/>
+                <column name="message_time_stamp" type="${timestamp_type}"/>
+                <column name="enabled" type="boolean"/>
+            </createTable>
+      </changeSet>
+</databaseChangeLog>

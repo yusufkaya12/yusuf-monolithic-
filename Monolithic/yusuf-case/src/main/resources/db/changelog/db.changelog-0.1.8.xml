@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="1" author="ysfky">
+        <insert tableName="features">
+            <column name="id" value="f1a22fef-20da-475b-acf4-e4c1eb82358e"/>
+            <column name="title" value="1.73 inc"/>
+            <column name="active" value="1"/>
+            <column name="category_id" value="c1a22fef-20da-475b-acf4-e4c1eb82358e"/>
+        </insert>
+        <insert tableName="features">
+            <column name="id" value="f2a22fef-20da-475b-acf4-e4c1eb82358e"/>
+            <column name="title" value="Jean"/>
+            <column name="active" value="1"/>
+            <column name="category_id" value="c2a22fef-20da-475b-acf4-e4c1eb82358e"/>
+        </insert>
+
+    </changeSet>
+</databaseChangeLog>

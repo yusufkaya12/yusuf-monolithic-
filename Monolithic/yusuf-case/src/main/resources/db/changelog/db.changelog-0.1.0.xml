@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+
+    <changeSet author="ysfky" id="1" >
+        <createTable tableName="roles">
+            <column name="id" type="${uuid_type}"/>
+            <column name="name" type="varchar(255)"/>
+            <column name="display_name" type="varchar(255)"/>
+        </createTable>
+        <createTable tableName="role_permissions">
+            <column name="role_id" type="${uuid_type}"/>
+            <column name="permission_id" type="${uuid_type}"/>
+        </createTable>
+        <createTable tableName="permission">
+            <column name="id" type="${uuid_type}"/>
+            <column name="name" type="varchar(255)"/>
+            <column name="display_name" type="varchar(255)"/>
+        </createTable>
+
+    </changeSet>
+
+    <changeSet id="2" author="bariskantar">
+        <insert tableName="roles">
+            <column name="id" value="a4a22fef-20da-475b-acf4-e4c1eb82358d"/>
+            <column name="name" value="ROLE_USER"/>
+            <column name="display_name" value="User"/>
+        </insert>
+        <insert tableName="permission">
+            <column name="id" value="29248e3f-e720-4d03-8c9d-b26db712af6c"/>
+            <column name="name" value="VIEW_USERS"/>
+            <column name="display_name" value="View Users"/>
+        </insert>
+        <insert tableName="permission">
+            <column name="id" value="c391b197-0fc6-490e-a78c-93577e63513e"/>
+            <column name="name" value="EDIT_USERS"/>
+            <column name="display_name" value="Edit Users"/>
+        </insert>
+        <insert tableName="role_permissions">
+            <column name="role_id" value="a4a22fef-20da-475b-acf4-e4c1eb82358d"/>
+            <column name="permission_id" value="29248e3f-e720-4d03-8c9d-b26db712af6c"/>
+        </insert>
+        <insert tableName="role_permissions">
+            <column name="role_id" value="a4a22fef-20da-475b-acf4-e4c1eb82358d"/>
+            <column name="permission_id" value="c391b197-0fc6-490e-a78c-93577e63513e"/>
+        </insert>
+
+        <rollback>
+            <dropTable tableName="role_permissions"/>
+            <dropTable tableName="roles"/>
+            <dropTable tableName="permission"/>
+        </rollback>
+
+    </changeSet>
+</databaseChangeLog>

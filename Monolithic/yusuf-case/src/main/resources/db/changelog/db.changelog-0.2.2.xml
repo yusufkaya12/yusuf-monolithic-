@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet author="tevfikuykun" id="1" >
+
+        <insert tableName="tags">
+            <column name="id" value="a1a22fef-20da-475b-acf4-e4c1eb82358e"/>
+            <column name="tags" value="kiralık motosiklet,spor motor,mavi spor motor"/>
+            <column name="advert_id" value="a3a22fef-20da-475b-acf4-e4c1eb82358e"/>
+        </insert>
+
+        </changeSet>
+
+</databaseChangeLog>
